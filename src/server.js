@@ -9,7 +9,7 @@ server.use(express.json());
 server.use("/members", membersRouter);
 
 server.get("/", (req, res) => {
-  //res.send("Success, server working"); //para provar el server al principio
+  //res.send("Success, server working"); //para provar el server al principio ; "sms" en cliente
   res.redirect(301, "/members");
 });
 

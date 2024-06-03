@@ -5,12 +5,12 @@ const membersRouter = Router();
 
 membersRouter.post("/", membersController.createMember);
 
-//membersRouter.get("/", membersController.readAllMembers);
+membersRouter.get("/", membersController.readAllMembers);
 
-//membersRouter.get("/:id", membersController.readMember);
+membersRouter.get("/:id", membersController.readMember);
 
-//membersRouter.put("/:id", membersController.updateMember);
+membersRouter.put("/:id", membersController.updateMember);
 
-//membersRouter.delete("/:id", membersController.deleteMember);
+membersRouter.delete("/:id", membersController.deleteMember);
 
 export default membersRouter;
