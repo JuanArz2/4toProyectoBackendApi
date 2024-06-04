@@ -4,6 +4,8 @@
 
 ### 0. Comenzar estructura
 
+Crear repositorio en GitHub y copiarlo en local
+
 Abrir el repositorio en VSCode
 y crear carpeta _src_
 
@@ -37,16 +39,16 @@ Comprobar | Agregar | Editar | Actualizar
 
 • dependencies & devDependencies
 
-• Bajo "scripts", pero antes del "test"
+• Bajo "scripts", pero antes del "test":
 
-_"start": "node ./src/index.js",_ activará el comando en terminal de start, para correr el node.
+_"start": "node ./src/index.js",_ activará el comando en terminal de start, para correr el node
 _"dev": "nodemon ./src/index.js",_ activará el comando en terminal de dev, para correr el nodemon
 
-• Antes de las dependencias
+• Antes de las dependencias:
 
 _"type": "module",_
 
-• Si hay cambios ejecutar _sudo npm i_
+• Si hay cambios en _package_json_, ejecutar _sudo npm i_
 
 ### 4. Crear archivos de:
 
@@ -62,10 +64,11 @@ const server = express(); //llamamos el server que nos aporta express
 
 server.use(morgan("dev"));
 server.use(express.json());
-server.use("/members", membersRouter);
+server.use("/xmembers", xMembersRouter);
 
 server.get("/", (req, res) => {
-  res.redirect(301, "/members");
+  //res.send("Success, server working"); //para provar el server al principio ; "sms" en cliente
+  res.redirect(301, "/xmembers");
 });
 
 export default server; -->
@@ -82,7 +85,15 @@ export default server; -->
 
 ### 6. Importaciones
 
-En _index.js_
+En _index.js_:
+
+_import "dotenv/config";_
+_import "./conectionDataBase.js";_
+_import server from "./server.js";_
+
+<!-- // Servidor y su portal -->
+<!-- server.listen(2999);
+console.log("Server Port: 2999"); -->
 
 ### 7. Comprobar DB (base de datos)
 
@@ -97,19 +108,48 @@ mongoose
     console.log("Error, Database isn't conected");
   }); -->
 
-En _conectionDataBase_ comprobar acceso autorizado a la base de datos gracias a mongoose, corriendo el comando _npm run dev_
+De _conectionDataBase_ comprobar acceso autorizado a la base de datos gracias a mongoose, corriendo el comando _npm run dev_
 
 ### 8. Crear modelos
 
-Ir al archivo xnameControler.js y establecer el modelo del json que deseamos usar en nuestra DB
+Ir al archivo xnameModel.js y establecer el modelo del json que deseamos usar en nuestra DB
+
+Importando: _import { Schema, model } from "mongoose";_, declarando nuestro nuevo modelo: _const xNameSchema = new Schema({ elEsquema })_
+
+y exportandolo: _export default model("member", xNameSchema);_
 
 ### 9. Crear controladores
 
-x
+Importando: _import memberModel from "../models/memberModel.js";_, declarando la variable de los controladores: _const membersController = { losControladores };_
+
+y exportandolo: _export default membersController;_
+
+<!-- Ejemplo:
+createMember: async (req, res) => { // nombre de la acción en el modelo
+try {
+      if (req.body.firstName === "") throw new Error("Empty first name"); // Todas las validaciones
+      const newMember = new memberModel(req.body);
+      const creatingMember = await newMember.save(); // Lógica de programación
+
+      if (creatingMember._id) {
+        res.json({
+          state: "Successful",
+          message: "Member created",
+          id: creatingMember._id,
+        }); // En el cliente
+      }
+
+    } catch (error) {
+      console.log("Error creating: ", error); // En consola de VSCode
+      res.json({ error: true, message: "Error creating member" }); // En el cliente
+    }
+
+}
+-->
 
 ### 10. Comprobar persistencia de datos
 
-Verificar si al usar nuestro cliente actualizamos, en Atlas (o lo que usemos), correctamente nuestra DB
+Verificar, en Atlas (o lo que usemos), si al usar nuestro cliente generamos datos correctamente en nuestra DB
 
 # 11. Actualizar documentación / GitHub
 

@@ -22,11 +22,11 @@ const membersController = {
           state: "Successful",
           message: "Member created",
           id: creatingMember._id,
-        });
+        }); // En el cliente
       }
     } catch (error) {
-      console.log("Error creating: ", error);
-      res.json({ error: true, message: "Error creating member" });
+      console.log("Error creating: ", error); // En consola de VSCode
+      res.json({ error: true, message: "Error creating member" }); // En el cliente
     }
   },
 

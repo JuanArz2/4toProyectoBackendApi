@@ -10,7 +10,7 @@ server.use("/members", membersRouter);
 
 server.get("/", (req, res) => {
   //res.send("Success, server working"); //para provar el server al principio ; "sms" en cliente
-  res.redirect(301, "/members");
+  res.redirect(301, "/members"); // Ruta
 });
 
 export default server;
