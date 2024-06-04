@@ -151,6 +151,6 @@ try {
 
 Verificar, en Atlas (o lo que usemos), si al usar nuestro cliente generamos datos correctamente en nuestra DB
 
-# 11. Actualizar documentación / GitHub
+### 11. Actualizar documentación / GitHub
 
 Verificar/actualizar el Readme. Subir al repositorio el código final
