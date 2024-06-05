@@ -2,6 +2,14 @@
 
 ---
 
+## Objetivo
+
+Crear un Backend para gestionar los miembros de una familia, guardando los datos de cada miembro de ella en un DB (Mongoose)
+
+---
+
+## Paso a paso de la creación del proyecto
+
 ### 0. Comenzar estructura
 
 Crear repositorio en GitHub y copiarlo en local
@@ -154,3 +162,9 @@ Verificar, en Atlas (o lo que usemos), si al usar nuestro cliente generamos dato
 ### 11. Actualizar documentación / GitHub
 
 Verificar/actualizar el Readme. Subir al repositorio el código final
+
+---
+
+## Autor
+
+[Juan Manuel Ariza](https://github.com/JuanArz2)
